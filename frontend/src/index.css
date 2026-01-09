@@ -1,0 +1,218 @@
+/* Base body */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f4f6f8;
+  color: #333;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Layout */
+.layout {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  height: calc(100vh - 60px); /* header + padding */
+  box-sizing: border-box;
+}
+
+/* Card common styles */
+.card {
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* FORM CARD */
+.form-card {
+  flex: 0.35;
+  min-width: 280px;
+  height: 480px; /* professional desktop height */
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* LIST CARD */
+.list-card,
+.product-list {
+  flex: 0.65;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+/* Form labels */
+.form-card label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #222;
+  transition: color 0.3s;
+}
+
+/* Inputs */
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.submit-btn,
+.add-btn {
+  background: #4caf50;
+  color: white;
+  width: 100%;
+}
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+  padding: 6px 10px;
+}
+.see-more-btn {
+  background: #3498db;
+  color: white;
+  margin-top: 10px;
+}
+.dark-btn {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #6b5b95;
+  color: white;
+}
+
+/* Summary */
+.summary {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+/* Search + dropdown inline */
+.search-dropdown {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.search-dropdown input {
+  flex: 2;
+}
+.search-dropdown select {
+  flex: 1;
+  cursor: pointer;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 14px;
+}
+th {
+  background: #e3f2fd;
+  color: #222;
+  padding: 10px;
+  text-align: left;
+}
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+/* DARK MODE */
+.dark {
+  background: #121212;
+  color: white;
+}
+.dark .card {
+  background: #1e1e1e;
+}
+.dark input,
+.dark select {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+}
+.dark .form-card label {
+  color: #f0f0f0;
+}
+.dark th {
+  background: #333;
+  color: #f0f0f0;
+}
+.dark .submit-btn,
+.dark .add-btn,
+.dark .see-more-btn {
+  background: #ffa500;
+  color: black;
+}
+.dark .delete-btn {
+  background: #ff5c5c;
+  color: white;
+}
+.dark .dark-btn {
+  background: #ffa500;
+  color: black;
+}
+
+/* RESPONSIVE MOBILE (Pixel 6: 1080px width) */
+@media (max-width: 430px) {
+  .layout {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+  }
+
+  .form-card,
+  .list-card {
+    flex: 1 1 100%;
+    width: 100%;
+    max-height: none;
+    height: auto;
+  }
+
+  .search-dropdown {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search-dropdown input,
+  .search-dropdown select {
+    flex: 1 1 100%;
+    margin-bottom: 8px;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+}
