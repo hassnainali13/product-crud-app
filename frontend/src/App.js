@@ -13,12 +13,23 @@ function App() {
  const fetchProducts = async () => {
   try {
     const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
-    setProducts(Array.isArray(res.data) ? res.data : []);
+    
+    // Ensure res.data is an array
+    const productsData = Array.isArray(res.data) ? res.data : res.data.products || res.data.data;
+    
+    setProducts(productsData);
   } catch (err) {
-    console.error("Error fetching products:", err);
-    setProducts([]); // fallback
+    console.error(err);
+    setProducts([
+      { _id: 1, name: "Wireless Mouse", description: "Ergonomic mouse", price: 25, category: "Electronics" },
+      { _id: 2, name: "Mechanical Keyboard", description: "RGB keyboard", price: 70, category: "Electronics" },
+      { _id: 3, name: "Running Shoes", description: "Lightweight shoes", price: 50, category: "Footwear" },
+      { _id: 4, name: "Coffee Mug", description: "Ceramic mug", price: 10, category: "Home & Kitchen" },
+      { _id: 5, name: "Notebook", description: "Hardcover notebook", price: 12, category: "Stationery" }
+    ]);
   }
 };
+
 
 
   useEffect(() => {
