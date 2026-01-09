@@ -34,14 +34,13 @@ function ProductList({ products, setProducts }) {
 
   // Filter by search and category
   // old
-const filtered = products.filter((p) => { ... });
-
-// new safe version
-const filtered = Array.isArray(products) ? products.filter((p) => {
+const filtered = products.filter((p) => {
   const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase());
-  const matchesCategory = filterCategory === "All" || p.category === filterCategory;
+  const matchesCategory =
+    filterCategory === "All" || p.category === filterCategory;
   return matchesSearch && matchesCategory;
-}) : [];
+});
+
 
 
   const visible = showAll ? filtered : filtered.slice(0, 7);
