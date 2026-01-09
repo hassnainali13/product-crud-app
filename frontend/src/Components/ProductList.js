@@ -23,7 +23,7 @@ function ProductList({ products, setProducts }) {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.get(`https://your-backend-url.up.railway.app/api/products/${id}`);
       setProducts(products.filter((p) => p._id !== id));
       toast.success("Product deleted");
     } catch (err) {
