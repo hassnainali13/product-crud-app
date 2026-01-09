@@ -33,8 +33,7 @@ function ProductForm({ fetchProducts }) {
       return;
     }
     try {
-      await axios.post("axios.get("https://your-backend-url.up.railway.app/api/products")
-", product);
+      await axios.post("https://your-backend-url.up.railway.app/api/products", product);
       toast.success("Product added successfully!");
       setProduct({ name: "", description: "", price: "", category: "" });
       fetchProducts(); // Refresh list
