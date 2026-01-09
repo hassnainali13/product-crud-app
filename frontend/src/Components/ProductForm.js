@@ -12,7 +12,7 @@ const categories = [
   "Toys",
   "Books",
   "Sports",
-  "Other"
+  "Other",
 ];
 
 function ProductForm({ fetchProducts }) {
@@ -20,7 +20,7 @@ function ProductForm({ fetchProducts }) {
     name: "",
     description: "",
     price: "",
-    category: ""
+    category: "",
   });
 
   const handleChange = (e) =>
@@ -33,7 +33,10 @@ function ProductForm({ fetchProducts }) {
       return;
     }
     try {
-      await axios.post("https://your-backend-url.up.railway.app/api/products", product);
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/products`,
+        product
+      );
       toast.success("Product added successfully!");
       setProduct({ name: "", description: "", price: "", category: "" });
       fetchProducts(); // Refresh list
@@ -75,14 +78,22 @@ function ProductForm({ fetchProducts }) {
         />
 
         <label>Category</label>
-        <select name="category" value={product.category} onChange={handleChange}>
+        <select
+          name="category"
+          value={product.category}
+          onChange={handleChange}
+        >
           <option value="">Select category</option>
           {categories.map((cat, i) => (
-            <option key={i} value={cat}>{cat}</option>
+            <option key={i} value={cat}>
+              {cat}
+            </option>
           ))}
         </select>
 
-        <button type="submit" className="submit-btn">Add Product</button>
+        <button type="submit" className="submit-btn">
+          Add Product
+        </button>
       </form>
     </div>
   );
