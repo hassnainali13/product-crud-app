@@ -12,7 +12,8 @@ function App() {
 
  const fetchProducts = async () => {
   try {
-    const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
+const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
+setProducts(res.data);
     
     // Ensure res.data is an array
     const productsData = Array.isArray(res.data) ? res.data : res.data.products || res.data.data;
